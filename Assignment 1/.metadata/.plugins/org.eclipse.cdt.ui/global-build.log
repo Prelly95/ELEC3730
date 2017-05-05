@@ -1,0 +1,103 @@
+13:17:52 **** Incremental Build of configuration Debug for project Ass-02-STM32 ****
+make all 
+'Building file: ../Src/Ass-02-Lib.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02-Lib.d" -MT"Src/Ass-02-Lib.o" -o "Src/Ass-02-Lib.o" "../Src/Ass-02-Lib.c"
+'Finished building: ../Src/Ass-02-Lib.c'
+' '
+'Building file: ../Src/Ass-02-Q01.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02-Q01.d" -MT"Src/Ass-02-Q01.o" -o "Src/Ass-02-Q01.o" "../Src/Ass-02-Q01.c"
+'Finished building: ../Src/Ass-02-Q01.c'
+' '
+'Building file: ../Src/Ass-02-Q02.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02-Q02.d" -MT"Src/Ass-02-Q02.o" -o "Src/Ass-02-Q02.o" "../Src/Ass-02-Q02.c"
+../Src/Ass-02-Q02.c: In function 'CalculatorInit':
+../Src/Ass-02-Q02.c:16:3: warning: implicit declaration of function 'BSP_TP_Init' [-Wimplicit-function-declaration]
+   BSP_TP_Init();
+   ^
+../Src/Ass-02-Q02.c: In function 'CalculatorProcess':
+../Src/Ass-02-Q02.c:68:7: warning: implicit declaration of function 'BSP_TP_GetDisplayPoint' [-Wimplicit-function-declaration]
+   if (BSP_TP_GetDisplayPoint(&display) == 0)
+       ^
+'Finished building: ../Src/Ass-02-Q02.c'
+' '
+'Building file: ../Src/Ass-02.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02.d" -MT"Src/Ass-02.o" -o "Src/Ass-02.o" "../Src/Ass-02.c"
+../Src/Ass-02.c: In function 'Ass_02_Main':
+../Src/Ass-02.c:17:3: warning: implicit declaration of function 'CalculatorInit' [-Wimplicit-function-declaration]
+   CalculatorInit();
+   ^
+../Src/Ass-02.c:23:5: warning: implicit declaration of function 'CalculatorProcess' [-Wimplicit-function-declaration]
+     CalculatorProcess();
+     ^
+'Finished building: ../Src/Ass-02.c'
+' '
+'Building file: ../Src/main.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+'Finished building: ../Src/main.c'
+' '
+'Building target: Ass-02-STM32.elf'
+'Invoking: MCU GCC Linker'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "Ass-02-STM32.elf" @"objects.list"  
+'Finished building target: Ass-02-STM32.elf'
+' '
+make --no-print-directory post-build
+'Generating binary and Printing size information:'
+arm-none-eabi-objcopy -O binary "Ass-02-STM32.elf" "Ass-02-STM32.bin"
+arm-none-eabi-size "Ass-02-STM32.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28544	    208	  26472	  55224	   d7b8	Ass-02-STM32.elf
+' '
+13:18:11 **** Incremental Build of configuration Debug for project Ass-02-STM32 ****
+make all 
+'Building file: ../Src/Ass-02-Lib.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02-Lib.d" -MT"Src/Ass-02-Lib.o" -o "Src/Ass-02-Lib.o" "../Src/Ass-02-Lib.c"
+'Finished building: ../Src/Ass-02-Lib.c'
+' '
+'Building file: ../Src/Ass-02-Q01.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02-Q01.d" -MT"Src/Ass-02-Q01.o" -o "Src/Ass-02-Q01.o" "../Src/Ass-02-Q01.c"
+'Finished building: ../Src/Ass-02-Q01.c'
+' '
+'Building file: ../Src/Ass-02-Q02.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02-Q02.d" -MT"Src/Ass-02-Q02.o" -o "Src/Ass-02-Q02.o" "../Src/Ass-02-Q02.c"
+'Finished building: ../Src/Ass-02-Q02.c'
+' '
+'Building file: ../Src/Ass-02.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/Ass-02.d" -MT"Src/Ass-02.o" -o "Src/Ass-02.o" "../Src/Ass-02.c"
+'Finished building: ../Src/Ass-02.c'
+' '
+'Building file: ../Src/main.c'
+'Invoking: MCU GCC Compiler'
+C:\Users\Patrick\Documents\Uni Work\Semester 1 2017\ELEC3730\Assignments\Assignment 2\Ass-02-STM32\Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F407xx -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/CMSIS/Include" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/BSP" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Drivers/Fonts" -I"C:/Users/Patrick/Documents/Uni Work/Semester 1 2017/ELEC3730/Assignments/Assignment 2/Ass-02-STM32/Inc"  -Os -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+'Finished building: ../Src/main.c'
+' '
+'Building target: Ass-02-STM32.elf'
+'Invoking: MCU GCC Linker'
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F407VGTx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "Ass-02-STM32.elf" @"objects.list"  
+'Finished building target: Ass-02-STM32.elf'
+' '
+make --no-print-directory post-build
+'Generating binary and Printing size information:'
+arm-none-eabi-objcopy -O binary "Ass-02-STM32.elf" "Ass-02-STM32.bin"
+arm-none-eabi-size "Ass-02-STM32.elf"
+   text	   data	    bss	    dec	    hex	filename
+  28544	    208	  26472	  55224	   d7b8	Ass-02-STM32.elf
+' '

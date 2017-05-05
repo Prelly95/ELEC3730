@@ -1,0 +1,611 @@
+//     $Date: 2017-03-13 08:12:38 +1100 (Mon, 13 Mar 2017) $
+// $Revision: 821 $
+//   $Author: Peter $
+
+// Question 1
+
+#include "Ass-01.h"
+
+int read_coefficients(int *coeff_num, double **coeff_values, char *filename)
+{
+
+	FILE *fp; //declares pointer for start of file
+
+	fp = fopen(filename, "rb");	//opens binary file to read
+
+	if(fp == 0)
+	{
+		printf("FILE READ ERROR\n");
+		return FALSE;//false defined in headder -1
+	}
+
+	fread(coeff_num, sizeof(int), 1, fp); //reads the first value of the binary file (fp) into coeff_num
+
+	*coeff_values = malloc((*coeff_num)*sizeof(double));	//allocates a block of memory for coeff_values of the correct size
+
+	//compares the expected size of the coeff_values (from the first integer 'n') array with the actual size
+	if(fread(*coeff_values, sizeof(double), *coeff_num, fp) != *coeff_num)
+	{
+		printf("ERROR\n");
+		return FALSE;
+	}
+
+	fclose(fp);
+	return TRUE;//true defined in headder 0
+}
+//     $Date: 2017-03-13 08:12:38 +1100 (Mon, 13 Mar 2017) $
+// $Revision: 821 $
+//   $Author: Peter $
+
+// Question 2
+#include "Ass-01.h"
+
+int read_pcm_wavefile(pcm_wavefile_header_type *header, char **data, char *filename)
+{
+	FILE* fp;
+	fp = fopen(filename, "rb");
+
+	if(fp == 0)
+	{
+		printf("\n\t\t\t\tFILE READ ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;
+	}
+
+	//reads in all files
+	fread((*header).ChunkID, sizeof(header->ChunkID), 1, fp);
+	fread(&(*header).ChunkSize, sizeof(uint32_t), 1, fp);
+	fread((*header).Format, sizeof(header->Format), 1, fp);
+	fread((*header).Subchunk1ID, sizeof(header->Subchunk1ID), 1, fp);
+	fread(&(*header).Subchunk1Size, sizeof(header->Subchunk1Size), 1, fp);
+	fread(&(*header).AudioFormat, sizeof(header->AudioFormat), 1, fp);
+	fread(&(*header).NumChannels, sizeof(header->NumChannels), 1, fp);
+	fread(&(*header).SampleRate, sizeof(header->SampleRate), 1, fp);
+	fread(&(*header).ByteRate, sizeof(header->ByteRate), 1, fp);
+	fread(&(*header).BlockAlign, sizeof(header->BlockAlign), 1, fp);
+	fread(&(*header).BitsPerSample, sizeof(header->BitsPerSample), 1, fp);
+	fread((*header).Subchunk2ID, sizeof(header->Subchunk2ID), 1, fp);
+	fread(&(*header).Subchunk2Size, sizeof(header->Subchunk2Size), 1, fp);
+
+
+	//ERROR CHECKING ChunkID compares each byte in ChunkID and compares it to its expected value
+	if((header->ChunkID[0] != 'R') | (header->ChunkID[1] != 'I') | (header->ChunkID[2] != 'F') | (header->ChunkID[3] != 'F'))
+	{
+		printf("\n\t\t\t\tChunkID: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;	//FALSE == -1
+	}
+	else
+	{
+		printf("\n\t\t\t\tChunkID: %c%c%c%c\n", header->ChunkID[0], header->ChunkID[1], header->ChunkID[2], header->ChunkID[3]);
+	}
+
+	//ChunkSise ERROR Checking
+	if(((header->ChunkSize - header->Subchunk2Size-36) == 0)||((header->ChunkSize - header->Subchunk2Size-36) == 0))
+	{
+		printf("\t\t\t\tChunkSize: %i\n", header->ChunkSize);
+	}
+	else
+	{
+		printf("\t\t\t\tChunkSize: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;	//FALSE == -1
+	}
+
+	//Format Error Checking compares each byte in Format and compares it to its expected value
+	if((header->Format[0] != 'W') | (header->Format[1] != 'A') | (header->Format[2] != 'V') | (header->Format[3] != 'E'))
+	{
+		printf("\t\t\t\tFormat: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;	//FALSE == -1
+	}
+	else
+	{
+		printf("\t\t\t\tFormat: %c%c%c%c\n", header->Format[0], header->Format[1], header->Format[2], header->Format[3]);
+	}
+
+	//Format Error Checking compares each byte in Format and compares it to its expected value
+	if((header->Subchunk1ID[0] != 'f') | (header->Subchunk1ID[1] != 'm') | (header->Subchunk1ID[2] != 't'))
+	{
+		printf("\t\t\t\tSubchunk1ID: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;	//FALSE == -1
+	}
+	else
+	{
+		printf("\t\t\t\tSubchunk1ID: %c%c%c\n", header->Subchunk1ID[0], header->Subchunk1ID[1], header->Subchunk1ID[2]);
+	}
+
+	//SubchunkSize ERROR CHECKING
+	if(header->Subchunk1Size != 16)
+	{
+		printf("\t\t\t\tSubchunk1Size: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;
+	}
+	else
+	{
+		printf("\t\t\t\tSubchunk1Size: %i\n", header->Subchunk1Size);
+	}
+
+	printf("\t\t\t\tAudioFormat: %i\n", header->AudioFormat);
+	printf("\t\t\t\tNumChannels: %i\n", header->NumChannels);
+	printf("\t\t\t\tSampleRate: %i\n", header->SampleRate);
+
+	//ByteRate ERROR Checking
+	if(header->ByteRate != (header->SampleRate)*(header->NumChannels) * ((header->BitsPerSample)/8))
+	{
+		printf("\t\t\t\tByteRate: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;
+	}
+	else
+	{
+		printf("\t\t\t\tByteRate: %i\n", header->ByteRate);
+	}
+
+	//BlckAlign ERROR Checking
+	if(header->BlockAlign != (header->NumChannels) * ((header->BitsPerSample)/8))
+	{
+		printf("\tBlockAlign: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;
+	}
+	else
+	{
+		printf("\t\t\t\tBlockAlign: %i\n", header->BlockAlign);
+	}
+
+	printf("\t\t\t\tBitsPerSample: %i\n", header->BitsPerSample);
+
+	//Subchunk2ID ERROR Checking
+	if((header->Subchunk2ID[0] != 'd') | (header->Subchunk2ID[1] != 'a') | (header->Subchunk2ID[2] != 't') | (header->Subchunk2ID[3] != 'a'))
+	{
+		printf("\t\t\t\tSubchunk2ID: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;	//FALSE == -1
+	}
+	else
+	{
+		printf("\t\t\t\tSubchunk2ID: %c%c%c%c\n", header->Subchunk2ID[0], header->Subchunk2ID[1], header->Subchunk2ID[2], header->Subchunk2ID[3]);
+	}
+
+	//Subchunk2Size ERROR Checking
+	if(header->Subchunk2Size != (header->ChunkSize) - 36)
+	{
+		printf("\t\t\t\tSubchunk2Size: ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;
+	}
+	else
+	{
+		printf("\t\t\t\tSubchunk2Size: %i\n\n\n", header->Subchunk2Size);
+		*data = malloc(header->Subchunk2Size * sizeof(uint8_t));
+	}
+
+	fread(*data, sizeof(uint8_t), header->Subchunk2Size, fp);
+	fclose(fp);
+	return TRUE;	//TRUE == 0
+}
+
+int write_pcm_wavefile(pcm_wavefile_header_type *header, char *data, char *filename)
+{
+	FILE *fp;
+	fp = fopen(filename, "wb");
+
+	//OPEN FILE ERROR
+	if(fp == 0)
+	{
+		printf("\n\t\t\t\tFILE OPEN ERROR\n\n\n");
+		fclose(fp);
+		return FALSE;
+	}
+
+	//write header to new file
+	fwrite(header, sizeof(pcm_wavefile_header_type), 1, fp);
+
+	//write data to new file
+	fwrite(data, sizeof(uint8_t), sizeof(uint8_t)*header->Subchunk2Size, fp);
+
+	fclose(fp);
+
+  return TRUE;
+}
+//     $Date: 2017-03-13 08:12:38 +1100 (Mon, 13 Mar 2017) $
+// $Revision: 821 $
+//   $Author: Peter $
+
+//Question 3
+#include "Ass-01.h"
+int filter(char *filter_filename, char *input_wavefilename, char *output_wavefilename)
+{
+
+	pcm_wavefile_header_type header;
+	int coeff_num;
+	double *coeff_values;
+	double buff; //the data used when calculating filtered data
+	char *dataIn; //data read in from Q2 as char*
+	int16_t *output; //data to be written to filtered wav file
+	int16_t *data; //data type casted from dataIn
+
+	//Error check for read_coefficients
+	if(read_coefficients(&coeff_num, &coeff_values, &(*filter_filename)) == FALSE)
+	{
+		printf("ERROR");
+		return FALSE;
+	}
+
+	//Error check for read_pcm_wavefile
+	if(read_pcm_wavefile(&header, &dataIn, &(*input_wavefilename)) == FALSE)
+	{
+		printf("ERROR");
+		return FALSE;
+	}
+
+	//allocate data under output
+	output = malloc(header.Subchunk2Size);
+
+	data = (int16_t *)dataIn; //typecast data to int16_t to capture both samples
+
+	printf("\nsubchunk2size:\t%d\n", header.Subchunk2Size);
+
+	for(int i = 0; i < (header.Subchunk2Size)/2; i ++)
+	{
+		buff = 0;
+		for(int j = 0; j <= i && j < coeff_num; j ++)
+		{
+			//calculate new data
+			buff = (buff + (double)data[i-j]*(coeff_values[j]));
+
+		}
+		output[i] = (uint16_t)buff;//cast calculated data(buff) to uint16_t
+	}
+
+	//write data to new output file
+	if(write_pcm_wavefile(&header, (char*)output, output_wavefilename) == -1)
+	{
+		printf("ERROR WRITING");
+	}
+
+	free(data);
+
+  return 0;
+}
+//     $Date: 2017-03-13 08:12:38 +1100 (Mon, 13 Mar 2017) $
+// $Revision: 821 $
+//   $Author: Peter $
+
+//Question 4
+#include "Ass-01.h"
+
+int string_parser(char *inp, char **array_of_words[])
+{
+	//error check state of file
+	if(*inp == '\0')
+	{
+		printf("ERROR NULL STRING\n");
+		return 0;
+	}
+
+	int wordCount = 0;//counts tokens in inp string
+	char *temp;//temporary array to edit inp array without changing it
+	char input = 0;//switch case variable
+	uint8_t count = 0;//lenght of inp string
+
+	//find inp string length
+	count = strlen(inp);
+
+	//allocate memory under temp
+	temp = malloc(sizeof(char)*count);
+
+	//copy inp into temp
+	strcpy(temp, inp);
+
+	printf("\n");//formatting
+
+	//switch case to find word count
+	for(int i = 0; i < count; i++)
+	{
+		switch(input)
+		{
+		case 1://space case
+			if(*(temp + i) == ' ')//space to space
+			{
+				input = 1;//do nothing
+			}
+			else if(*(temp + i) != ' ' && *(temp + i) != '\0')//space to char
+			{
+				wordCount++;//space to letter means new word
+				input = 2;
+			}
+			else if(*(temp + i) == '\0')//space to null
+			{
+				//do nothing
+			}
+			break;
+		case 2://char case
+			if(*(temp + i) == ' ')//char to space
+			{
+				input = 1;//do nothing
+			}
+			else if(*(temp + i) != ' ' && *(temp + i) != '\0')
+			{
+				input = 2;//do nothing
+			}
+			break;
+
+		default://start case
+			if(*(temp + i) == ' ')
+			{
+				input = 1;
+			}
+			else if(*(temp + i) != ' ' && *(temp + i) != '\0')
+			{
+				input = 2;
+			}
+			else if(*(temp + i) == '\0')
+			{
+
+			}
+			break;
+		}
+	}
+
+	*array_of_words = (char**)malloc((wordCount+1)*sizeof(char**));//allocate data after word count is known
+
+	int charCount;
+
+	input = 0;//reset case index
+	wordCount = 0;//reset word count
+
+	for(int i = 0; i < count; i++)
+		{
+			switch(input)
+			{
+			case 1://space case
+				if(temp[i] == ' ')//space to space
+				{
+					input = 1;
+				}
+				else if(temp[i] != ' ' && temp[i] != '\0')//space to char
+				{
+					*(*array_of_words + wordCount) = &(temp[i]);//pointer to start of each word
+					charCount++;//add one to char count
+					wordCount++;//add one to word count
+					input = 2;
+				}
+				else if(temp[i] == '\0')//space to null
+				{
+					input = 0;
+				}
+				break;
+			case 2://chr case
+				if(temp[i] == ' ')//char to space
+				{
+					temp[i] = '\0';//letter to space is end of word, set to null
+					input = 1;
+				}
+				else if(temp[i] != ' ' && temp[i] != '\0')
+				{
+					input = 2;
+				}
+				else if(temp[i] == '\0')
+				{
+					input = 0;
+				}
+				break;
+
+			default://start case
+				if(temp[i] == ' ')
+				{
+					input = 1;
+				}
+				else if(temp[i] != ' ' && temp[i] != '\0')
+				{
+					input = 2;
+					*(*array_of_words + wordCount) = &(temp[i]);//point array to start of words
+					wordCount++;
+				}
+				else if(temp[i] == '\0')//null string
+				{
+				}
+				break;
+			}
+		}
+
+	free(temp);//clear temp data
+	return wordCount;//return number of words
+}
+//     $Date: 2017-03-13 07:57:58 +1100 (Mon, 13 Mar 2017) $
+// $Revision: 820 $
+//   $Author: Peter $
+
+// Assignment 1 test for all questions
+
+#include "Ass-01.h"
+
+int Ass_01_Main(void)
+{
+
+#ifndef STM32F407xx
+
+  // Filter coefficient filenames
+  char *filename_filter[] = {"filterBP.bin","filterHP.bin","filterLP.bin","filterSB.bin",
+		                     "filter-Bad-0.bin","filter-Bad-1.bin","filter-Bad-2.bin",NULL};
+  char *filename_audio[]= {"8k16bitpcm.wav", "11k8bitpcm.wav","11k16bitpcm.wav",
+		                    "8kmp38.wav","8k16bitpcm-Bad-0.wav",
+							"8k16bitpcm-Bad-1.wav","8k16bitpcm-Bad-2.wav","8k16bitpcm-Bad-3.wav" ,NULL};
+  char *parse_string[] = {"one two three"," one  two three  ",  "",NULL};
+
+  // Loop variables
+  int i,j;
+
+#endif
+
+  // Welcome
+  printf("\nELEC3730 Assignment 1 ($Rev: 820 $)\n");
+
+#ifndef STM32F407xx
+
+  // Question 1
+  {
+	int coeff_num;
+	double *coeff_values;
+	printf("-> Question 1...\n");
+	i=0;
+	while (filename_filter[i] != NULL)
+    {
+      printf("--> %19s: ",filename_filter[i]);
+	  if (read_coefficients(&coeff_num, &coeff_values, filename_filter[i])==0)
+	  {
+	    printf("coeff_num = %d", coeff_num);
+	    if (coeff_num > 0) printf(", coeff_values[0] = %f", coeff_values[0]);
+	    printf("\n");
+	  }
+      i++;
+    }
+  }
+
+  // Question 2
+  {
+	pcm_wavefile_header_type header;
+	char filename_output[100];
+	char *data;
+	printf("-> Question 2...\n");
+	i=0;
+	while (filename_audio[i] != NULL)
+    {
+      printf("--> %20s: ",filename_audio[i]);
+	  if (read_pcm_wavefile(&header, &data, filename_audio[i])==0)
+	  {
+		if (strcmp(filename_audio[i],"8k16bitpcm.wav")==0)
+        {
+			snprintf(filename_output,100,"%s-%s",filename_audio[i],filename_audio[i]);
+    		printf("--> Write %s\n\n", filename_output);
+		    write_pcm_wavefile(&header, data, filename_output);
+        }
+	    free(data);
+	  }
+      i++;
+    }
+  }
+
+  // Question 3
+  {
+	char filename_output[100];
+	printf("-> Question 3...\n");
+	for (i=0;i<4;i++)
+    {
+      printf("--> %17s: ",filename_filter[i]);
+      snprintf(filename_output,100,"%s-%s",filename_filter[i],filename_audio[0]);
+	  if (filter(filename_filter[i], filename_audio[0], filename_output)==0)
+	  {
+	    printf("--> Written %s.\n", filename_output);
+	  }
+    }
+  }
+
+  // Question 4
+  {
+	char **array_of_words;
+	int count;
+	printf("-> Question 4...\n");
+	i=0;
+	while (parse_string[i] != NULL)
+    {
+      printf("--> '%17s': ",parse_string[i]);
+	  count = string_parser(parse_string[i], &array_of_words);
+	  if (count != 0)
+	  {
+		printf("count = %d\n", count);
+	    for (j=0;j<count;j++)
+	    {
+		  printf("---> %d: '%s'\n", j+1, (array_of_words)[j]);
+	    }
+   	    free(array_of_words[0]);
+		free(array_of_words);
+	  }
+      i++;
+    }
+  }
+
+#endif
+
+#ifdef STM32F407xx
+  // Question 5
+  {
+	printf("-> Question 5...\n");
+	while (1)
+      serial_string_parser();
+  }
+#endif
+
+  printf("Done.\n");
+
+  // Always return pass for now
+  return 0;
+}
+//     $Date: 2017-03-13 07:57:58 +1100 (Mon, 13 Mar 2017) $
+// $Revision: 820 $
+//   $Author: Peter $
+
+
+#define TRUE 0
+#define FALSE -1
+// Assignment include file
+
+#ifndef ASS_01_H_
+#define ASS_01_H_
+
+// Standard includes
+#ifdef STM32F407xx
+#include "stm32f4xx_hal.h"
+#else
+#include <windows.h>
+#endif
+#include <stdio.h>
+#include <stdint.h>
+#include <malloc.h>
+#include <string.h>
+
+// Data types
+typedef struct
+{
+  uint8_t  ChunkID[4];    // 'RIFF'
+  uint32_t ChunkSize;
+  uint8_t  Format[4];
+
+  uint8_t  Subchunk1ID[4]; // 'fmt '
+  uint32_t Subchunk1Size;  // Assume a size of 16 for PCM encoded data
+  uint16_t AudioFormat;    // 1=PCM encoded data
+  uint16_t NumChannels;
+  uint32_t SampleRate;
+  uint32_t ByteRate;
+  uint16_t BlockAlign;
+  uint16_t BitsPerSample;
+
+  uint8_t  Subchunk2ID[4]; // 'data'
+  uint32_t Subchunk2Size;
+}
+  pcm_wavefile_header_type;
+
+// Assignment main
+extern int Ass_01_Main(void);
+
+// Question 1
+extern int read_coefficients(int *coeff_num, double **coeff_values, char *filename);
+
+// Question 2
+extern int read_pcm_wavefile(pcm_wavefile_header_type *header, char **data, char *filename);
+extern int write_pcm_wavefile(pcm_wavefile_header_type *header, char *data, char *filename);
+
+// Question 3
+extern int filter(char *filter_filename, char *input_wavefilename, char *output_wavefilename);
+
+// Question 4
+extern int string_parser(char *inp, char **array_of_words[]);
+
+// Question 5
+extern void serial_string_parser(void);
+
+#endif /* ASS_01_H_ */
